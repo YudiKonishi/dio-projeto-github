@@ -33,7 +33,19 @@ namespace Revisão{
                             soma = soma + Convert.ToInt16(alunos[i].Nota);
                         }
                         var media = soma/indice_alunos;
-                        Console.WriteLine($"Média geral: {media}");
+                        Conceito conce;
+                        if(media<4){
+                            conce = Conceito.F;
+                        }else if(media < 5){
+                            conce = Conceito.D;
+                        }else if(media < 6.5){
+                            conce = Conceito.C;
+                        }else if(media < 7.5){
+                            conce = Conceito.B;
+                        }else{
+                            conce = Conceito.A;
+                        }
+                        Console.WriteLine($"Média geral: {media} Conceito: {conce}");
                         break;
                     default:
                         throw new ArgumentOutOfRangeException("Informe um valor válido");
